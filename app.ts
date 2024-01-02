@@ -9,9 +9,9 @@ app.post("meta_wa_callbackurl", (req: Request, res: Response) => {})
 
 app.get("meta_wa_callbackurl",  (req: Request, res: Response) => {
   try {
-    const mode: string = req.query['hub.mode'];
-    const token: string = req.query['hub.verify_token'];
-    const challenge: string = req.query['hub.challenge'];
+    const mode: any = req.query['hub.mode'];
+    const token: any = req.query['hub.verify_token'];
+    const challenge: any = req.query['hub.challenge'];
 
     if (mode && token && mode === 'subscribe' && token === "123") {
       return res.status(200).send(challenge);
