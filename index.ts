@@ -1,9 +1,10 @@
 import dotenv from "dotenv";
 import { appendFileSync } from "fs";
+import 'module-alias/register';
 
 dotenv.config({ path: "./.env" });
 
-import connectDB from "./db"
+import connectDB from "@/db"
 import app from "./app";
 
 (async () => {
