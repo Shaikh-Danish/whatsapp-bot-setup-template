@@ -9,7 +9,7 @@ import app from "./app";
 
 (async () => {
   addRootPathInEnv();
-  connectDB();
+  await connectDB();
 
   app.on("error", (error) => {
     console.log("Error", error);
