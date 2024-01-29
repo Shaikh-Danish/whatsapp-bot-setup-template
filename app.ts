@@ -1,5 +1,8 @@
 import express, { Express, Request, Response } from "express";
+
 // import { tryCatch } from "./src/utils/tryCatch";
+import parseBody from "./src/middleware/messageParser";
+import messageController from "./src/controller/messageController";
 
 const app: Express = express();
 
@@ -22,8 +25,6 @@ app.get("meta_wa_callbackurl", (req: Request, res: Response) => {
   }
 });
 
-app.post("meta_wa_callbackurl", (req: Request, res: Response) => {
-  console.log(req, res);
-});
+app.post("meta_wa_callbackurl", parseBody, messageController);
 
 export default app;
