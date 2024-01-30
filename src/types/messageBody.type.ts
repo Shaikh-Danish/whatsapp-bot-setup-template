@@ -73,7 +73,7 @@ interface Thread {
   from: From;
 }
 
-interface Message {
+export interface Message {
   from: From;
   timestamp: string;
   type?: string;

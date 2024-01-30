@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 
 import Whatsapp from "@/whatsapp";
-import WhatsAppMessage from "@/types/messageBody";
+import WhatsAppMessage from "@/types/messageBody.type";
 
 const parse = (req: Request, res: Response, next: NextFunction) => {
   try {

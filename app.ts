@@ -9,7 +9,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("meta_wa_callbackurl", (req: Request, res: Response) => {
+app.get("/meta_wa_callbackurl", (req: Request, res: Response) => {
   try {
     const mode: unknown = req.query["hub.mode"];
     const token: unknown = req.query["hub.verify_token"];
@@ -25,6 +25,6 @@ app.get("meta_wa_callbackurl", (req: Request, res: Response) => {
   }
 });
 
-app.post("meta_wa_callbackurl", parseBody, messageController);
+app.post("/meta_wa_callbackurl", parseBody, messageController);
 
 export default app;
