@@ -1,7 +1,17 @@
-import { NextFunction, Request, Response } from "express";
+import { Request } from "express";
 
-const controller = (req: Request, res: Response, next: NextFunction) => {
-  // ? Handle Incoming Message
+import WhatsAppMessage from "@/types/messageBody.type";
+
+const controller = (req: Request) => {
+  const message: WhatsAppMessage = req.body;
+
+  if (isMessage(message)) {
+    console.log(message);
+  }
 };
+
+function isMessage(message: WhatsAppMessage): boolean {
+  return message.isMessage;
+}
 
 export default controller;
