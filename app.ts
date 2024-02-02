@@ -16,6 +16,7 @@ app.get("/meta_wa_callbackurl", (req: Request, res: Response) => {
     const challenge: unknown = req.query["hub.challenge"];
 
     if (mode && token && mode === "subscribe" && token === "123") {
+      console.log("GET webhook connection request");
       return res.status(200).send(challenge);
     } else {
       return res.sendStatus(403);

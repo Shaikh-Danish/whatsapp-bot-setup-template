@@ -1,17 +1,17 @@
 import { Request } from "express";
 
+import Whatsapp from "@/whatsapp";
 import WhatsAppMessage from "@/types/messageBody.type";
+import { tryCatch } from "@/utils/tryCatch";
 
-const controller = (req: Request) => {
+const controller = tryCatch(async (req: Request) => {
   const message: WhatsAppMessage = req.body;
 
-  if (isMessage(message)) {
-    console.log(message);
+  if (message.isMessage) {
+    //
   }
-};
 
-function isMessage(message: WhatsAppMessage): boolean {
-  return message.isMessage;
-}
+  return Promise.resolve("");
+});
 
 export default controller;

@@ -1,7 +1,15 @@
-import { Request, Response, NextFunction } from "express";
+import { Request } from "express";
 
-export const tryCatch =
-  (controllerFunction: () => Promise<string>) =>
-  async (req: Request, res: Response, next: NextFunction) => {
-    await controllerFunction().catch(next);
+function tryCatch(
+  controllerFunction: (req: Request) => Promise<string>
+): (req: Request) => Promise<void> {
+  return async (req: Request) => {
+    try {
+      await controllerFunction(req);
+    } catch (error) {
+      console.error("An Error Occured", error);
+    }
   };
+}
+
+export { tryCatch };
