@@ -1,6 +1,5 @@
 import express, { Express, Request, Response } from "express";
 
-// import { tryCatch } from "./src/utils/tryCatch";
 import parseBody from "./src/middleware/messageParser";
 import messageController from "./src/controller/messageController";
 
